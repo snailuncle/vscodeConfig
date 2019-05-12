@@ -1,0 +1,82 @@
+{
+  "blankLine.triggerOnSave": false,
+  "blankLine.keepOneEmptyLine": false,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  // By default, create file username
+  "fileheader.Author": "QQ203118908",
+  // By default, update file username.
+  "fileheader.LastModifiedBy": "QQ203118908",
+  // By default, common template. Do not modify it!!!!!
+  "fileheader.tpl": "/*\r\n * @Author: {author} \r\n * @Date: {createTime} \r\n * @Last Modified by:   {lastModifiedBy} \r\n * @Last Modified time: {updateTime} \r\n */\r\nauto.waitFor();\r\nrequiresAutojsVersion(\"3.0.0 Beta\");\r\nsetScreenMetrics(1080, 1920);\r\n",
+
+
+
+
+
+
+
+
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+      ".git": true,
+      "bin": true,
+      "node_modules": false,
+      "package.nls.*.json": true,
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
+    },
+    "search.exclude": {
+        ".git": true,
+        "node_modules": true,
+        "bin": true,
+        "out": true
+    },
+    "extensions.autoUpdate": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cwd": "E:/autojsStudy",
+    // "python.terminal.executeInFileDir": false,
+    "workbench.editor.enablePreview": false,
+    "python.pythonPath": "D:/anaconda/python.exe",
+    "workbench.iconTheme": "vscode-icons",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+    "python.formatting.provider": "yapf",
+    "git.path": "D:/git/Git/cmd/git.exe",
+    // E128
+    "python.linting.flake8Args": ["--max-line-length=248", "--ignore=E225,E265,E501,E741,E303,E231,E115,E302,E226,W391,W293,E305,F401,E251,F841,E401,W291,E228,E262,E301,E402,E222,E271,E127,E261,E306,E227,E241,E128"],
+    "files.insertFinalNewline": true,
+    "files.autoSave": "afterDelay",
+    // "files.autoGuessEncoding": true,
+    "files.associations": {
+        "*.py": "python"
+    },
+    "editor.wordWrap": "on",
+    "editor.fontSize": 18,
+    // 根据文件类型自动设置tabsize的选项
+    "editor.detectIndentation": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.rightClickBehavior": "default",
+    "terminal.integrated.scrollback": 800,
+    // "python.linting.pylintArgs": [
+    //     "–disable-msg=C0103"
+    // ],
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#ee07ee",
+        "editor.selectionHighlightBackground": "#ca4eca",
+        "editor.findMatchBackground": "#ca4eca",
+
+    },
+    "workbench.sideBar.location": "left",
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+    "terminal.integrated.rendererType": "dom",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "editor.tabSize": 2,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "window.zoomLevel": 0
+  }
