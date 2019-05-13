@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>上传附件</title>
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+		<video id="video" width="640" height="480" autoplay></video>
+        <button id="snap" onclick="ice()">Snap Photo</button>
+        <canvas id="canvas" width="640" height="480"></canvas>
+		</div>
+	</body>
+	<script>
+	// Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+function ice(){
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+	context.drawImage(video, 0, 0, 640, 480);
+	let src = canvas.toDataURL("image/png");
+	 var fd = new FormData();
+         function dataURItoBlob(dataURI) {//图片转成Buffer
+
+             var byteString = atob(dataURI.split(',')[1]);
+             var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+             var ab = new ArrayBuffer(byteString.length);
+             var ia = new Uint8Array(ab);
+             for (var i = 0; i < byteString.length; i++) {
+                 ia[i] = byteString.charCodeAt(i);
+             }
+             return new Blob([ab], {type: mimeString});
+         }
+         var blob = dataURItoBlob(src);
+         fd.append('source_from','webpage_upload')//在formdata加入需要的参数
+         fd.append('file',blob)
+		 $.ajax({
+                type:'POST',
+                url:'http://localhost:81/sz/getimg',
+                data:fd,
+                contentType:"application/x-www-form-urlencoded",
+                processData:false,
+                mimeType:'multipart/form-data',
+                success:function(data){
+                    console.log(data);
+                }
+            });
+}
+	</script>
+</html>
